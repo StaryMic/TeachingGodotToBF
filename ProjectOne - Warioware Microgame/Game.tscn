@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://ck5hfy2xd3884"]
+
+[ext_resource type="Script" uid="uid://4hnn74328dsd" path="res://ProjectOne - Warioware Microgame/Scripts/game_state.gd" id="1_cnexm"]
+[ext_resource type="Texture2D" uid="uid://bm6h3daf7w5iy" path="res://ProjectOne - Warioware Microgame/Assets/Images/duck.png" id="1_msjpu"]
+[ext_resource type="Texture2D" uid="uid://dnkk7x3vwcj2d" path="res://ProjectOne - Warioware Microgame/Assets/Images/Flag.png" id="2_wv1ey"]
+[ext_resource type="Texture2D" uid="uid://vq4b3dxrb15h" path="res://ProjectOne - Warioware Microgame/Assets/Images/Confetti.png" id="3_e67sx"]
+[ext_resource type="Script" uid="uid://c2pimqr3bouu8" path="res://ProjectOne - Warioware Microgame/Scripts/Flag.gd" id="5_4mayl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv1ey"]
+size = Vector2(72, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e67sx"]
+size = Vector2(56, 62)
+
+[sub_resource type="Curve" id="Curve_0o8wk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.501672, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lgpul"]
+curve = SubResource("Curve_0o8wk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cnexm"]
+lifetime_randomness = 0.19
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+angle_min = -152.1
+angle_max = 251.7
+direction = Vector3(0, -1, 0)
+spread = 31.5
+initial_velocity_min = 146.23
+initial_velocity_max = 344.99
+gravity = Vector3(0, 98, 0)
+scale_min = 0.25
+scale_max = 0.65
+scale_curve = SubResource("CurveTexture_lgpul")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+turbulence_noise_strength = 0.1
+
+[node name="Game" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_top = 35.0
+offset_right = 1152.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 56
+text = "CLICK THE DUCK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameState" type="Node" parent="."]
+script = ExtResource("1_cnexm")
+
+[node name="Timer" type="Timer" parent="GameState"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="GameState"]
+offset_left = 393.0
+offset_top = 87.0
+offset_right = 626.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 51
+
+[node name="ProgressBar" type="ProgressBar" parent="GameState"]
+custom_minimum_size = Vector2(0, 35)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+max_value = 5.0
+show_percentage = false
+
+[node name="Duck" type="Sprite2D" parent="."]
+position = Vector2(162, 324)
+texture = ExtResource("1_msjpu")
+flip_h = true
+
+[node name="CollisionArea" type="Area2D" parent="Duck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Duck/CollisionArea"]
+shape = SubResource("RectangleShape2D_wv1ey")
+
+[node name="Flag" type="Sprite2D" parent="." node_paths=PackedStringArray("game_state_node")]
+position = Vector2(826, 328)
+texture = ExtResource("2_wv1ey")
+script = ExtResource("5_4mayl")
+game_state_node = NodePath("../GameState")
+
+[node name="CollisionArea" type="Area2D" parent="Flag"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flag/CollisionArea"]
+shape = SubResource("RectangleShape2D_e67sx")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Flag"]
+emitting = false
+amount = 73
+texture = ExtResource("3_e67sx")
+one_shot = true
+randomness = 0.05
+process_material = SubResource("ParticleProcessMaterial_cnexm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Flag"]
+
+[connection signal="input_event" from="Duck/CollisionArea" to="Duck" method="_on_click"]
+[connection signal="area_entered" from="Flag/CollisionArea" to="Flag" method="_on_collision_area_entered"]

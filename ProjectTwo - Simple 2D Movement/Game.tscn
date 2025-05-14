@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0jdtcixkpf3i"]
+
+[ext_resource type="PackedScene" uid="uid://bbtr337oieekn" path="res://ProjectTwo - Simple 2D Movement/Scenes/Player.tscn" id="1_vmmw7"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vmmw7")]
+position = Vector2(607, 360)
+scale = Vector2(3, 3)

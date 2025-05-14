@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbtr337oieekn"]
+
+[ext_resource type="Script" uid="uid://bvow4ir7sckbh" path="res://ProjectTwo - Simple 2D Movement/Scripts/Player.gd" id="1_a04kh"]
+[ext_resource type="Texture2D" uid="uid://btb8xjofk4pgr" path="res://ProjectTwo - Simple 2D Movement/Assets/Images/Guy.png" id="2_3pakn"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_a04kh")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3pakn")
