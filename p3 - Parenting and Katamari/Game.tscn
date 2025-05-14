@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8wn1eck4hpsi"]
+
+[ext_resource type="PackedScene" uid="uid://cwxfsq7m0jxrm" path="res://_Shared/Scenes/game_state.tscn" id="1_gulrh"]
+[ext_resource type="Script" uid="uid://mrd8qx7vtwaa" path="res://p3 - Parenting and Katamari/Scripts/SimpleWinCounter.gd" id="2_ivv0o"]
+[ext_resource type="Script" uid="uid://cfe0el7oeyt34" path="res://p3 - Parenting and Katamari/Scripts/Spawner.gd" id="4_qthei"]
+
+[node name="Game" type="Node2D"]
+
+[node name="GameState" parent="." instance=ExtResource("1_gulrh")]
+
+[node name="SimpleWinCounter" type="Node" parent="."]
+script = ExtResource("2_ivv0o")
+metadata/_custom_type_script = "uid://mrd8qx7vtwaa"
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("4_qthei")

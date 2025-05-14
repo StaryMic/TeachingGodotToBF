@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://0jdtcixkpf3i"]
+
+[ext_resource type="Script" uid="uid://xymtyif01q24" path="res://_Shared/Scripts/RichTextEffects/Shaky.gd" id="1_4l730"]
+[ext_resource type="PackedScene" uid="uid://cwxfsq7m0jxrm" path="res://_Shared/Scenes/game_state.tscn" id="1_eg77n"]
+[ext_resource type="PackedScene" uid="uid://bbtr337oieekn" path="res://p2 - Simple 2D Movement/Scenes/Player.tscn" id="1_vmmw7"]
+[ext_resource type="PackedScene" uid="uid://du4bjedfrwe4n" path="res://p2 - Simple 2D Movement/Scenes/House.tscn" id="3_i7a6d"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_yjirh"]
+script = ExtResource("1_4l730")
+metadata/_custom_type_script = "uid://xymtyif01q24"
+
+[node name="Game" type="Node2D"]
+
+[node name="Label" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 80.0
+offset_right = 1153.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = 0
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][shaky]GO HOME!"
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_yjirh")]
+
+[node name="GameState" parent="." instance=ExtResource("1_eg77n")]
+
+[node name="Player" parent="." instance=ExtResource("1_vmmw7")]
+position = Vector2(88, 568)
+scale = Vector2(2, 2)
+
+[node name="House" parent="." instance=ExtResource("3_i7a6d")]
+position = Vector2(1001, 418)

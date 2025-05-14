@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxx1a3hda8w04"]
+
+[ext_resource type="Texture2D" uid="uid://2i1yckpk8onj" path="res://p3 - Parenting and Katamari/Assets/Images/ThePrinceOfAllCosmos.png" id="1_k7vtw"]
+[ext_resource type="Script" uid="uid://d2raef2maoojd" path="res://p3 - Parenting and Katamari/Scripts/Prince.gd" id="2_8r0j1"]
+[ext_resource type="Texture2D" uid="uid://eybfnlmykm21" path="res://p3 - Parenting and Katamari/Assets/Images/KatamariBall.png" id="3_hfuq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8r0j1"]
+radius = 34.2345
+
+[node name="Prince" type="Sprite2D"]
+texture = ExtResource("1_k7vtw")
+script = ExtResource("2_8r0j1")
+
+[node name="KatamariBall" type="Sprite2D" parent="."]
+position = Vector2(50, 2)
+texture = ExtResource("3_hfuq3")
+
+[node name="Area2D" type="Area2D" parent="KatamariBall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KatamariBall/Area2D"]
+shape = SubResource("CircleShape2D_8r0j1")

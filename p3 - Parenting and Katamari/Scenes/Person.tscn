@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6lqsh6005lho"]
+
+[ext_resource type="Texture2D" uid="uid://w4vfvxaf5g7a" path="res://p3 - Parenting and Katamari/Assets/Images/Person.png" id="1_i4u2v"]
+[ext_resource type="Script" uid="uid://b2j6hl7g4cbia" path="res://p3 - Parenting and Katamari/Scripts/KatamariPickup.gd" id="2_lce5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4u2v"]
+size = Vector2(15, 52)
+
+[node name="Person" type="Sprite2D"]
+texture = ExtResource("1_i4u2v")
+script = ExtResource("2_lce5p")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_i4u2v")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
