@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwxfsq7m0jxrm"]
+
+[ext_resource type="Script" uid="uid://4hnn74328dsd" path="res://_Shared/Scripts/game_state.gd" id="1_3famy"]
+
+[node name="GameState" type="Node"]
+script = ExtResource("1_3famy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 35.0
+offset_bottom = 58.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 35)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+max_value = 5.0
+show_percentage = false

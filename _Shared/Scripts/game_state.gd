@@ -1,4 +1,8 @@
-extends Node
+# This defines a Class.
+# A class is an object that can be instanced (aka there can be multiple)
+# In this case, it is being used to allow for me to search for this node
+# and access it in other scripts without hacky workarounds.
+class_name GameState extends Node
 
 # Keeping track of if the player won or not
 var game_won : bool = false
