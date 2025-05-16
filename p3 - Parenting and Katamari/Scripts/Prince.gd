@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	var movement = (movement_dir * speed) * delta
 	
 	# Rotate the katamari ball
-	sprite_ball.rotation += (deg_to_rad(20) * sign(movement_dir.x)) * delta
+	sprite_ball.rotation += (deg_to_rad(200) * sign(movement_dir.x)) * delta
 	
 	# Switch the katamari side and prince facing direction
 	if(movement_dir.x > 0):

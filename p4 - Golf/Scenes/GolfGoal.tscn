@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d07e447lke3aq"]
+
+[ext_resource type="Texture2D" uid="uid://wjnr56uq0qpa" path="res://p4 - Golf/Assets/Images/Goal.png" id="1_kajb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_185rf"]
+size = Vector2(98, 46)
+
+[node name="GolfGoal" type="Area2D"]
+
+[node name="Goal" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_kajb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 41)
+shape = SubResource("RectangleShape2D_185rf")

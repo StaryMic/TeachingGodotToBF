@@ -26,9 +26,6 @@ func _ready() -> void:
 func on_win():
 	audio.play()
 	confetti.emitting = true
-	
-# TODO: No code here is asking the collision_area if anything has hit it.
-# Teach Icey about the Node panel in the inspector
 
 func _on_collision_area_entered(area: Area2D) -> void:
 	if area.get_parent().name == "Duck":

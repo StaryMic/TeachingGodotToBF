@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnigsyi4lv34k"]
+
+[ext_resource type="PackedScene" uid="uid://w63wr05d4845" path="res://p4 - Golf/Scenes/GolfBall.tscn" id="1_8bhb8"]
+[ext_resource type="PackedScene" uid="uid://cwxfsq7m0jxrm" path="res://_Shared/Scenes/game_state.tscn" id="1_pk12l"]
+[ext_resource type="PackedScene" uid="uid://d07e447lke3aq" path="res://p4 - Golf/Scenes/GolfGoal.tscn" id="2_6ljqf"]
+[ext_resource type="AudioStream" uid="uid://b6vd5k0wywrif" path="res://_Shared/Assets/Sounds/CroudClapping.wav" id="2_vygrk"]
+[ext_resource type="AudioStream" uid="uid://b3q2vqx0qpsox" path="res://_Shared/Assets/Sounds/CrowdBooing.wav" id="3_j1qp1"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameState" parent="." instance=ExtResource("1_pk12l")]
+win_sound = ExtResource("2_vygrk")
+lose_sound = ExtResource("3_j1qp1")
+hint_text = "Putt it in!"
+win_text = "HOLE IN ONE"
+
+[node name="GolfBall" parent="." node_paths=PackedStringArray("gamestate") instance=ExtResource("1_8bhb8")]
+position = Vector2(164, 333)
+gamestate = NodePath("../GameState")
+
+[node name="GolfGoal" parent="." instance=ExtResource("2_6ljqf")]
+position = Vector2(726, 233)
