@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ck5hfy2xd3884"]
+[gd_scene load_steps=13 format=3 uid="uid://ck5hfy2xd3884"]
 
 [ext_resource type="PackedScene" uid="uid://cwxfsq7m0jxrm" path="res://_Shared/Scenes/game_state.tscn" id="1_h4qmq"]
 [ext_resource type="Texture2D" uid="uid://bm6h3daf7w5iy" path="res://p1 - WarioWare/Assets/Images/duck.png" id="1_msjpu"]
+[ext_resource type="AudioStream" uid="uid://b6vd5k0wywrif" path="res://_Shared/Assets/Sounds/CroudClapping.wav" id="2_ogicr"]
 [ext_resource type="Texture2D" uid="uid://dnkk7x3vwcj2d" path="res://p1 - WarioWare/Assets/Images/Flag.png" id="2_wv1ey"]
+[ext_resource type="AudioStream" uid="uid://b3q2vqx0qpsox" path="res://_Shared/Assets/Sounds/CrowdBooing.wav" id="3_8a35n"]
 [ext_resource type="Texture2D" uid="uid://vq4b3dxrb15h" path="res://p1 - WarioWare/Assets/Images/Confetti.png" id="3_e67sx"]
 [ext_resource type="Script" uid="uid://c2pimqr3bouu8" path="res://p1 - WarioWare/Scripts/Flag.gd" id="5_4mayl"]
 
@@ -39,16 +41,11 @@ turbulence_noise_strength = 0.1
 
 [node name="Game" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_top = 35.0
-offset_right = 1152.0
-offset_bottom = 112.0
-theme_override_font_sizes/font_size = 56
-text = "CLICK THE DUCK"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="GameState" parent="." instance=ExtResource("1_h4qmq")]
+win_sound = ExtResource("2_ogicr")
+lose_sound = ExtResource("3_8a35n")
+hint_text = "CLICK THE DUCK"
+win_text = "QUACK!"
 
 [node name="Duck" type="Sprite2D" parent="."]
 position = Vector2(162, 324)

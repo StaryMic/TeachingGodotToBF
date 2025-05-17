@@ -12,7 +12,7 @@ func on_count_updated():
 	# If the counter updates then check conditions.
 	# Account for accidental moments where current > total
 	if current_amount >= total_amount && total_amount != 0:
-		game_state.emit_signal("game_winner_signal")
+		game_state.emit_signal("win_condition_met")
 
 func add_total_count():
 	# Used for setup. This shouldn't trigger an update.

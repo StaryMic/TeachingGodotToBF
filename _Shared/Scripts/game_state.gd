@@ -23,7 +23,7 @@ var game_won : bool = false
 # @onready makes the variable be filled by the value when the node is made.
 # $ is a shortcut for referencing a node.
 # In this case, this references our child nodes (Timer and Label)
-@onready var timer = $Timer
+@onready var timer : Timer = $Timer
 @onready var label = $Label
 @onready var progress_bar = $ProgressBar
 @onready var win_label = $RichTextLabel
@@ -62,6 +62,10 @@ func on_timer_timeout():
 	check_if_won()
 
 func condition_met():
+	# Prevent winning outside the time limit
+	# This also might stop you from repeatedly winning
+	# but idk if that'll do anything bad
+	if(timer.is_stopped() || timer.paused): return
 	game_won = true
 	
 	if !can_be_won_early:

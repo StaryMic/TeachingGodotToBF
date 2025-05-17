@@ -12,10 +12,17 @@ config_version=5
 
 config/name="TeachingVee"
 config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://dx42s0tn81tau"
 
 [dotnet]
 
 project/assembly_name="TeachingVee"
+
+[layer_names]
+
+2d_physics/layer_16="2D - Player"
+2d_physics/layer_17="2D - Walls"
+2d_physics/layer_18="2D - Special"
 
 [rendering]
 

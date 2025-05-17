@@ -21,7 +21,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# When we win, we want to call the on_win() function.
-	game_state_node.connect("game_won_signal", on_win)
+	# BUG: Not sure if this signal name is right :/
+	game_state_node.connect("win_condition_unmet", on_win)
 
 func on_win():
 	audio.play()
@@ -29,5 +30,5 @@ func on_win():
 
 func _on_collision_area_entered(area: Area2D) -> void:
 	if area.get_parent().name == "Duck":
-		var game_win_signal = Signal(game_state_node,"game_won_signal")
+		var game_win_signal = Signal(game_state_node,"win_condition_unmet")
 		game_win_signal.emit()

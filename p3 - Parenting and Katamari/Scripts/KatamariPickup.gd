@@ -18,6 +18,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	# Tell the counter we've been picked up
 	win_counter_node.add_current_count()
 	
+	# call_deferred lets you run code at a later time, typically at the end of a frame.
+	# This is used to delete and reparent the pickups without making
+	# the physics system unhappy.
+	
 	# Kill the Area 2D so we don't get triggered again.
 	collider.call_deferred("queue_free")
 	

@@ -11,6 +11,6 @@ void fragment() {
 	vec4 text = texture(TEXTURE, UV);
 	float color = sin(TIME + UV.x);
 	vec3 base_hsv = vec3(color,1,1);
-	vec3 new_hsv = hsv2rgb(base_hsv); 
+	vec3 new_hsv = hsv2rgb(base_hsv);
 	COLOR = vec4(new_hsv, text.a);
 }

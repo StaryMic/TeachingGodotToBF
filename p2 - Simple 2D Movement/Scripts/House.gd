@@ -24,4 +24,4 @@ func _on_area_2d_entered(area: Area2D) -> void:
 		# Delete the player so it looks like they went in
 		area.get_parent().queue_free()
 		# Tell the gamestate that we won!
-		game_state.game_won_signal.emit()
+		game_state.win_condition_met.emit()

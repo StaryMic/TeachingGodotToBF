@@ -5,7 +5,7 @@
 extends Node2D
 
 # This line of code adds a variable (a place where a value is held)
-# Makes it a boolear (Which only holds True and False)
+# Makes it a boolean (Which only holds True and False)
 # And sets it to be false by default.
 var clicked : bool = false
 
