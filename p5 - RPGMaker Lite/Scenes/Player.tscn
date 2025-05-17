@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccma7x74cg1sv"]
+
+[ext_resource type="Texture2D" uid="uid://dhe3yd5qiftqm" path="res://p5 - RPGMaker Lite/Assets/Images/Player.png" id="1_43qs3"]
+[ext_resource type="Script" uid="uid://bcxs4q3ycuveo" path="res://p5 - RPGMaker Lite/Scripts/RPGPlayer.gd" id="1_i50r8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i50r8"]
+size = Vector2(32, 32)
+
+[node name="Player" type="Area2D"]
+collision_layer = 32768
+collision_mask = 131072
+script = ExtResource("1_i50r8")
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i50r8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_43qs3")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 32)
+collision_mask = 65536
+collide_with_areas = true
+
+[connection signal="body_entered" from="." to="." method="_on_special_body_entered"]
